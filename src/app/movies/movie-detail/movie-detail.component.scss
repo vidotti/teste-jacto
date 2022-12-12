@@ -1,0 +1,28 @@
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-flow-column {
+    flex-flow: column;
+}
+
+.flex-flow-row {
+    flex-flow: row;
+}
+
+.movie-title {
+    font-size: 38px;
+}
+
+.movie-text {
+    max-width: 420px;
+    padding: 30px
+}
+
+.movie-img {
+    // margin: 0 auto;
+    max-width: 320px;
+    width: 320px;
+    // width: 100%;
+}

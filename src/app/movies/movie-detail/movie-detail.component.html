@@ -1,0 +1,13 @@
+<div class="flex-grid flex-flow-column movie-frame badge badge-pill badge-success p-2">
+
+        <p class="movie-title">{{ movie?.title }}</p>
+        <div class="flex-grid flex-flow-row">
+            
+            <img class="movie-img" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + movie?.poster_path"/>
+            <!-- <img class="movie-img" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + movie?.backdrop_path"/> -->
+            <p class="movie-text">{{ movie?.overview }}</p>
+
+        </div> 
+  
+    
+    </div>

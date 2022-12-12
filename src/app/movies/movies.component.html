@@ -1,0 +1,50 @@
+<h1>Filmes</h1>
+
+<ngx-spinner [showSpinner]="true" bdColor="rgba(0, 0, 0, 0.8)" size="small" color="#fff" type="ball-scale-multiple" type="line-scale">
+  <p style="color: white" > Carregando... </p>
+</ngx-spinner>
+
+<div class="flex-grid movie-frame badge badge-pill badge-success p-2" *ngIf="movies.length">
+  <form [formGroup]="formulario">
+    <div class="form-group">
+      <select id="sexo" name="sexo" class="form-control" formControlName="genre"
+      >
+        <option name="selectGenre" value="0">TODOS</option>
+        <option *ngFor="let genre of movieGenres; let i = index" [value]="genre.id">{{ genre.name }}</option>
+      </select>
+    </div>
+  </form>
+
+  <!-- paginacao -->
+  <nav class="flex-grid row flex-justify-center paginacao" *ngIf="listaPaginas && listaPaginas.length">
+    <div class="ajuste-flex-pag col-sm-12 flex-grid flex-justify-end flex-align-items">
+      <span class="">{{totalMovies}} filme(s) encontrados(s)</span>
+      <button class="btn btn-default btn-inicio btn-topo-direita btn-pag"
+        (click)="trocarPagina(1)">Primeira</button>
+
+      <button class="btn btn-default btn-inicio btn-topo-direita btn-pag"
+        [class.selected]="pagina === numeroDaPagina" *ngFor="let pagina of listaPaginas"
+        (click)="trocarPagina(pagina)">{{pagina}}</button>
+
+      <span class="btn-pag" *ngIf="listaPaginas[listaPaginas.length - 1] < qtdTotalDePaginas">...</span>
+
+      <button class="btn btn-default btn-inicio btn-topo-direita btn-pag"
+        (click)="trocarPagina(qtdTotalDePaginas)">Última</button>
+    </div>
+  </nav>
+
+</div>
+
+
+<p class="flex-grid movie-frame badge badge-pill badge-success p-2" *ngIf="movies.length">
+    <span *ngFor="let movie of movies">
+        <div class="flex-grid flex-flow">
+            <p class="movie-title">{{ movie?.title }}</p>
+            <img class="movie-img" [src]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + movie?.poster_path"/>
+            <button class="movie-button" (click)="onEdit(movie?.id)">ver mais</button>
+        </div> 
+    </span>
+    
+</p>
+
+
